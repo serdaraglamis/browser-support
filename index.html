@@ -1,0 +1,351 @@
+<head>
+
+    <script>
+        /*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-animation-cors-cssanimations-csscalc-cssgrid_cssgridlegacy-customelements-flexbox-flexboxlegacy-webp-webplossless_webp_lossless-willchange-setclasses !*/
+        !function (e, n, t) {
+            function s(e, n) {
+                return typeof e === n
+            }
+
+            function r() {
+                var e, n, t, r, i, o, a;
+                for (var l in b) if (b.hasOwnProperty(l)) {
+                    if (e = [], n = b[l], n.name && (e.push(n.name.toLowerCase()), n.options && n.options.aliases && n.options.aliases.length)) for (t = 0; t < n.options.aliases.length; t++) e.push(n.options.aliases[t].toLowerCase());
+                    for (r = s(n.fn, "function") ? n.fn() : n.fn, i = 0; i < e.length; i++) o = e[i], a = o.split("."), 1 === a.length ? Modernizr[a[0]] = r : (!Modernizr[a[0]] || Modernizr[a[0]] instanceof Boolean || (Modernizr[a[0]] = new Boolean(Modernizr[a[0]])), Modernizr[a[0]][a[1]] = r), y.push((r ? "" : "no-") + a.join("-"))
+                }
+            }
+
+            function i(e) {
+                var n = C.className, t = Modernizr._config.classPrefix || "";
+                if (x && (n = n.baseVal), Modernizr._config.enableJSClass) {
+                    var s = new RegExp("(^|\\s)" + t + "no-js(\\s|$)");
+                    n = n.replace(s, "$1" + t + "js$2")
+                }
+                Modernizr._config.enableClasses && (n += " " + t + e.join(" " + t), x ? C.className.baseVal = n : C.className = n)
+            }
+
+            function o() {
+                return "function" != typeof n.createElement ? n.createElement(arguments[0]) : x ? n.createElementNS.call(n, "http://www.w3.org/2000/svg", arguments[0]) : n.createElement.apply(n, arguments)
+            }
+
+            function a(e, n) {
+                return !!~("" + e).indexOf(n)
+            }
+
+            function l(e, n) {
+                return function () {
+                    return e.apply(n, arguments)
+                }
+            }
+
+            function A(e, n, t) {
+                var r;
+                for (var i in e) if (e[i] in n) return t === !1 ? e[i] : (r = n[e[i]], s(r, "function") ? l(r, t || n) : r);
+                return !1
+            }
+
+            function u(e) {
+                return e.replace(/([a-z])-([a-z])/g, function (e, n, t) {
+                    return n + t.toUpperCase()
+                }).replace(/^-/, "")
+            }
+
+            function f(e) {
+                return e.replace(/([A-Z])/g, function (e, n) {
+                    return "-" + n.toLowerCase()
+                }).replace(/^ms-/, "-ms-")
+            }
+
+            function d(n, t, s) {
+                var r;
+                if ("getComputedStyle" in e) {
+                    r = getComputedStyle.call(e, n, t);
+                    var i = e.console;
+                    if (null !== r) s && (r = r.getPropertyValue(s)); else if (i) {
+                        var o = i.error ? "error" : "log";
+                        i[o].call(i, "getComputedStyle returning null, its possible modernizr test results are inaccurate")
+                    }
+                } else r = !t && n.currentStyle && n.currentStyle[s];
+                return r
+            }
+
+            function c() {
+                var e = n.body;
+                return e || (e = o(x ? "svg" : "body"), e.fake = !0), e
+            }
+
+            function p(e, t, s, r) {
+                var i, a, l, A, u = "modernizr", f = o("div"), d = c();
+                if (parseInt(s, 10)) for (; s--;) l = o("div"), l.id = r ? r[s] : u + (s + 1), f.appendChild(l);
+                return i = o("style"), i.type = "text/css", i.id = "s" + u, (d.fake ? d : f).appendChild(i), d.appendChild(f), i.styleSheet ? i.styleSheet.cssText = e : i.appendChild(n.createTextNode(e)), f.id = u, d.fake && (d.style.background = "", d.style.overflow = "hidden", A = C.style.overflow, C.style.overflow = "hidden", C.appendChild(d)), a = t(f, e), d.fake ? (d.parentNode.removeChild(d), C.style.overflow = A, C.offsetHeight) : f.parentNode.removeChild(f), !!a
+            }
+
+            function m(n, s) {
+                var r = n.length;
+                if ("CSS" in e && "supports" in e.CSS) {
+                    for (; r--;) if (e.CSS.supports(f(n[r]), s)) return !0;
+                    return !1
+                }
+                if ("CSSSupportsRule" in e) {
+                    for (var i = []; r--;) i.push("(" + f(n[r]) + ":" + s + ")");
+                    return i = i.join(" or "), p("@supports (" + i + ") { #modernizr { position: absolute; } }", function (e) {
+                        return "absolute" == d(e, null, "position")
+                    })
+                }
+                return t
+            }
+
+            function g(e, n, r, i) {
+                function l() {
+                    f && (delete E.style, delete E.modElem)
+                }
+
+                if (i = s(i, "undefined") ? !1 : i, !s(r, "undefined")) {
+                    var A = m(e, r);
+                    if (!s(A, "undefined")) return A
+                }
+                for (var f, d, c, p, g, h = ["modernizr", "tspan", "samp"]; !E.style && h.length;) f = !0, E.modElem = o(h.shift()), E.style = E.modElem.style;
+                for (c = e.length, d = 0; c > d; d++) if (p = e[d], g = E.style[p], a(p, "-") && (p = u(p)), E.style[p] !== t) {
+                    if (i || s(r, "undefined")) return l(), "pfx" == n ? p : !0;
+                    try {
+                        E.style[p] = r
+                    } catch (v) {
+                    }
+                    if (E.style[p] != g) return l(), "pfx" == n ? p : !0
+                }
+                return l(), !1
+            }
+
+            function h(e, n, t, r, i) {
+                var o = e.charAt(0).toUpperCase() + e.slice(1), a = (e + " " + S.join(o + " ") + o).split(" ");
+                return s(n, "string") || s(n, "undefined") ? g(a, n, r, i) : (a = (e + " " + Q.join(o + " ") + o).split(" "), A(a, n, t))
+            }
+
+            function v(e, n, s) {
+                return h(e, t, t, n, s)
+            }
+
+            function w(e, n) {
+                if ("object" == typeof e) for (var t in e) U(e, t) && w(t, e[t]); else {
+                    e = e.toLowerCase();
+                    var s = e.split("."), r = Modernizr[s[0]];
+                    if (2 == s.length && (r = r[s[1]]), "undefined" != typeof r) return Modernizr;
+                    n = "function" == typeof n ? n() : n, 1 == s.length ? Modernizr[s[0]] = n : (!Modernizr[s[0]] || Modernizr[s[0]] instanceof Boolean || (Modernizr[s[0]] = new Boolean(Modernizr[s[0]])), Modernizr[s[0]][s[1]] = n), i([(n && 0 != n ? "" : "no-") + s.join("-")]), Modernizr._trigger(e, n)
+                }
+                return Modernizr
+            }
+
+            var y = [], b = [], _ = {
+                _version: "3.6.0",
+                _config: {classPrefix: "", enableClasses: !0, enableJSClass: !0, usePrefixes: !0},
+                _q: [],
+                on: function (e, n) {
+                    var t = this;
+                    setTimeout(function () {
+                        n(t[e])
+                    }, 0)
+                },
+                addTest: function (e, n, t) {
+                    b.push({name: e, fn: n, options: t})
+                },
+                addAsyncTest: function (e) {
+                    b.push({name: null, fn: e})
+                }
+            }, Modernizr = function () {
+            };
+            Modernizr.prototype = _, Modernizr = new Modernizr, Modernizr.addTest("cors", "XMLHttpRequest" in e && "withCredentials" in new XMLHttpRequest), Modernizr.addTest("customelements", "customElements" in e);
+            var C = n.documentElement;
+            Modernizr.addTest("willchange", "willChange" in C.style);
+            var x = "svg" === C.nodeName.toLowerCase();
+            Modernizr.addTest("webanimations", "animate" in o("div"));
+            var T = _._config.usePrefixes ? " -webkit- -moz- -o- -ms- ".split(" ") : ["", ""];
+            _._prefixes = T, Modernizr.addTest("csscalc", function () {
+                var e = "width:", n = "calc(10px);", t = o("a");
+                return t.style.cssText = e + T.join(n + e), !!t.style.length
+            });
+            var B = "Moz O ms Webkit", S = _._config.usePrefixes ? B.split(" ") : [];
+            _._cssomPrefixes = S;
+            var Q = _._config.usePrefixes ? B.toLowerCase().split(" ") : [];
+            _._domPrefixes = Q;
+            var R = {elem: o("modernizr")};
+            Modernizr._q.push(function () {
+                delete R.elem
+            });
+            var E = {style: R.elem.style};
+            Modernizr._q.unshift(function () {
+                delete E.style
+            }), _.testAllProps = h, _.testAllProps = v, Modernizr.addTest("flexboxlegacy", v("boxDirection", "reverse", !0)), Modernizr.addTest("cssanimations", v("animationName", "a", !0)), Modernizr.addTest("cssgridlegacy", v("grid-columns", "10px", !0)), Modernizr.addTest("cssgrid", v("grid-template-rows", "none", !0)), Modernizr.addTest("flexbox", v("flexBasis", "1px", !0));
+            var U;
+            !function () {
+                var e = {}.hasOwnProperty;
+                U = s(e, "undefined") || s(e.call, "undefined") ? function (e, n) {
+                    return n in e && s(e.constructor.prototype[n], "undefined")
+                } : function (n, t) {
+                    return e.call(n, t)
+                }
+            }(), _._l = {}, _.on = function (e, n) {
+                this._l[e] || (this._l[e] = []), this._l[e].push(n), Modernizr.hasOwnProperty(e) && setTimeout(function () {
+                    Modernizr._trigger(e, Modernizr[e])
+                }, 0)
+            }, _._trigger = function (e, n) {
+                if (this._l[e]) {
+                    var t = this._l[e];
+                    setTimeout(function () {
+                        var e, s;
+                        for (e = 0; e < t.length; e++) (s = t[e])(n)
+                    }, 0), delete this._l[e]
+                }
+            }, Modernizr._q.push(function () {
+                _.addTest = w
+            }), Modernizr.addAsyncTest(function () {
+                var e = new Image;
+                e.onerror = function () {
+                    w("webplossless", !1, {aliases: ["webp-lossless"]})
+                }, e.onload = function () {
+                    w("webplossless", 1 == e.width, {aliases: ["webp-lossless"]})
+                }, e.src = "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA="
+            }), Modernizr.addAsyncTest(function () {
+                function e(e, n, t) {
+                    function s(n) {
+                        var s = n && "load" === n.type ? 1 == r.width : !1, i = "webp" === e;
+                        w(e, i && s ? new Boolean(s) : s), t && t(n)
+                    }
+
+                    var r = new Image;
+                    r.onerror = s, r.onload = s, r.src = n
+                }
+
+                var n = [{
+                    uri: "data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=",
+                    name: "webp"
+                }, {
+                    uri: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==",
+                    name: "webp.alpha"
+                }, {
+                    uri: "data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA",
+                    name: "webp.animation"
+                }, {
+                    uri: "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=",
+                    name: "webp.lossless"
+                }], t = n.shift();
+                e(t.name, t.uri, function (t) {
+                    if (t && "load" === t.type) for (var s = 0; s < n.length; s++) e(n[s].name, n[s].uri)
+                })
+            }), r(), i(y), delete _.addTest, delete _.addAsyncTest;
+            for (var P = 0; P < Modernizr._q.length; P++) Modernizr._q[P]();
+            e.Modernizr = Modernizr
+        }(window, document);
+    </script>
+
+
+    <style>
+        ul {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 3;
+        }
+
+        li {
+            color: green
+        }
+
+        .no-animation li.animation {
+            color: red;
+        }
+
+        .no-cors li.cors {
+            color: red;
+        }
+
+        .no-cssanimations li.cssanimations {
+            color: red;
+        }
+
+        .no-csscalc li.csscalc {
+            color: red;
+        }
+
+        .no-cssgrid li.cssgrid {
+            color: red;
+        }
+
+        .no-cssgridlegacy li.cssgridlegacy {
+            color: red;
+        }
+
+        .no-customelements li.customelements {
+            color: red;
+        }
+
+        .no-flexbox li.flexbox {
+            color: red;
+        }
+
+        .no-flexboxlegacy li.flexboxlegacy {
+            color: red;
+        }
+
+        .no-webp li.webp {
+            color: red;
+        }
+
+        .no-webplossless li.webplossless {
+            color: red;
+        }
+
+        .no-webp li.webp {
+            color: red;
+        }
+
+        .no-lossless li.lossless {
+            color: red;
+        }
+
+        .no-willchange li.willchange {
+            color: red;
+        }
+
+        .no-setclasses li.setclasses {
+            color: red;
+        }
+
+        .shadowdom {
+            color: black;
+        }
+    </style>
+</head>
+
+
+<body style="margin-top: 200px">
+
+<ul>
+    <li class="animation">animation</li>
+    <li class="cors">cors</li>
+    <li class="cssanimations">cssanimations</li>
+    <li class="csscalc">csscalc</li>
+    <li class="cssgrid">cssgrid</li>
+    <li class="cssgridlegacy">cssgridlegacy</li>
+    <li class="customelements">customelements</li>
+    <li class="flexbox">flexbox</li>
+    <li class="flexboxlegacy">flexboxlegacy</li>
+    <li class="webp">webp</li>
+    <li class="webplossless">webplossless</li>
+    <li class="webp">webp</li>
+    <li class="lossless">lossless</li>
+    <li class="willchange">willchange</li>
+    <li class="setclasses">setclasses</li>
+    <li class="shadowdom">shadowdom</li>
+</ul>
+
+
+<script>
+    var CAN_SHADOW = !!(document.head.attachShadow || document.head.createShadowRoot)
+
+    if(CAN_SHADOW) {
+        document.querySelector('.shadowdom').style.color = 'green'
+    } else {
+        document.querySelector('.shadowdom').style.color = 'red'
+    }
+</script>
+</body>
